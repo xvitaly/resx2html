@@ -40,7 +40,10 @@ namespace resx2html
                                 for (int i = 0; i < XMLNList.Count; i++)
                                 {
                                     XmlElement ElID = (XmlElement)XMLD.GetElementsByTagName("data")[i];
-                                    CFile.WriteLine(String.Format("<tr><td>{0}</td><td>{1}</td></tr>", ElID.GetAttribute("name"), ElID.GetElementsByTagName("value")[0].InnerText));
+                                    if (String.IsNullOrWhiteSpace(ElID.GetAttribute("type")))
+                                    {
+                                        CFile.WriteLine(String.Format("<tr><td>{0}</td><td>{1}</td></tr>", ElID.GetAttribute("name"), ElID.GetElementsByTagName("value")[0].InnerText));
+                                    }
                                 }
                                 XMLFS.Close();
                             }
