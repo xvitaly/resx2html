@@ -11,14 +11,14 @@ namespace resx2html
         static void Main(string[] Args)
         {
             Console.WriteLine("###########################################################################");
-            Console.WriteLine("#                WELCOME TO RESX2HTML (.NET RESOURCE CONVERTER)           #");
-            Console.WriteLine("#             This console program will convert resx file to HTML.        #");
+            Console.WriteLine("#              WELCOME TO RESX2HTML (.NET RESOURCE CONVERTER)             #");
+            Console.WriteLine("#           This console program will convert resx file to HTML.          #");
             Console.WriteLine("#                                                                         #");
-            Console.WriteLine("#        (C) 2005 - 2013 EasyCoding Team. All rights reserved.            #");
-            Console.WriteLine("#            Original author: V1TSK (vitaly@easycoding.org).              #");
+            Console.WriteLine("#          (C) 2005 - 2013 EasyCoding Team. All rights reserved.          #");
+            Console.WriteLine("#             Original author: V1TSK (vitaly@easycoding.org).             #");
             Console.WriteLine("#                                                                         #");
-            Console.WriteLine("#     Official site: http://www.easycoding.org/projects/resx2html         #");
-            Console.WriteLine("#                        Part of SRC Repair project.                      #");
+            Console.WriteLine("#       Official site: http://www.easycoding.org/projects/resx2html       #");
+            Console.WriteLine("#                       Part of SRC Repair project.                       #");
             Console.WriteLine("###########################################################################");
             Console.WriteLine();
             if (Args.Count() > 1)
