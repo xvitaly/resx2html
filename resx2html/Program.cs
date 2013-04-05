@@ -40,16 +40,20 @@ namespace resx2html
                                 XmlNodeList XMLNList = XMLD.GetElementsByTagName("data");
                                 for (int i = 0; i < XMLNList.Count; i++)
                                 {
-                                    XmlElement ElID = (XmlElement)XMLD.GetElementsByTagName("data")[i];
-                                    if (String.IsNullOrWhiteSpace(ElID.GetAttribute("type")))
+                                    try
                                     {
-                                        CFile.WriteLine(String.Format("<tr><td>{0}</td><td>{1}</td></tr>", ElID.GetAttribute("name"), ElID.GetElementsByTagName("value")[0].InnerText));
+                                        XmlElement ElID = (XmlElement)XMLD.GetElementsByTagName("data")[i];
+                                        if (String.IsNullOrWhiteSpace(ElID.GetAttribute("type")))
+                                        {
+                                            CFile.WriteLine(String.Format("<tr><td>{0}</td><td>{1}</td></tr>", ElID.GetAttribute("name"), ElID.GetElementsByTagName("value")[0].InnerText));
+                                        }
                                     }
+                                    catch (Exception Ex) { CFile.WriteLine(String.Format("<!-- {0} -->", Ex.Message)); }
                                 }
                                 XMLFS.Close();
                             }
                         }
-                        catch (Exception Ex) { CFile.WriteLine(String.Format("<!-- {0} -->", Ex.Message)); }
+                        catch (Exception Ex) { Console.WriteLine(String.Format("Exception caught: {0}.", Ex.Message)); }
                         CFile.WriteLine("</table></div><div align=\"right\">(c) EasyCoding Team</div></body>");
                         CFile.Close();
                         Console.WriteLine(" Done.\n\nGoodbye.");
