@@ -7,7 +7,7 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("resx2html")]
-[assembly: AssemblyDescription("resx2html")]
+[assembly: AssemblyDescription("Non-interactive .NET resource converter")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("EasyCoding Team")]
 [assembly: AssemblyProduct("resx2html")]
@@ -33,6 +33,6 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.1.0.16")]
-[assembly: AssemblyFileVersion("0.1.0.16")]
+[assembly: AssemblyVersion("0.2.0.39")]
+[assembly: AssemblyFileVersion("0.2.0.39")]
 [assembly: NeutralResourcesLanguageAttribute("")]

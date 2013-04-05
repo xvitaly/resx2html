@@ -10,6 +10,7 @@ namespace resx2html
     {
         static void Main(string[] Args)
         {
+            Console.Title = "Non-interactive .NET resource converter";
             Console.WriteLine("###########################################################################");
             Console.WriteLine("#              WELCOME TO RESX2HTML (.NET RESOURCE CONVERTER)             #");
             Console.WriteLine("#           This console program will convert resx file to HTML.          #");
