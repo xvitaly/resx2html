@@ -135,6 +135,10 @@
   <data name="HTMLRow" xml:space="preserve">
     <value>&lt;tr&gt;&lt;td&gt;{0}&lt;/td&gt;&lt;td&gt;{1}&lt;/td&gt;&lt;/tr&gt;</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="WelcomeMsg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WelcomeMsg.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="WlxMsg" xml:space="preserve">
     <value>Syntax: resx2html &lt;RESX-file&gt; &lt;result.html&gt; &lt;output format&gt;</value>
   </data>

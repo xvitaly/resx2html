@@ -87,6 +87,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\WelcomeMsg.txt" />
     <Content Include="resx2html.ico" />
   </ItemGroup>
   <ItemGroup>

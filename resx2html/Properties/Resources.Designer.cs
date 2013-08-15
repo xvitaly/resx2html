@@ -115,6 +115,21 @@ namespace resx2html.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ###########################################################################
+        ///#              WELCOME TO RESX2HTML (.NET RESOURCE CONVERTER)             #
+        ///#           This console program will convert resx file to HTML.          #
+        ///#                                                                         #
+        ///#          (C) 2005 - 2013 EasyCoding Team. All rights reserved.          #
+        ///#             Original author: V1TSK (vitaly@easycoding.org).             #
+        ///#                                                  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WelcomeMsg {
+            get {
+                return ResourceManager.GetString("WelcomeMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Syntax: resx2html &lt;RESX-file&gt; &lt;result.html&gt; &lt;output format&gt;.
         /// </summary>
         internal static string WlxMsg {

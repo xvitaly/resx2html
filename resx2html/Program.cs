@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Xml;
+using System.Reflection;
 
 namespace resx2html
 {
@@ -16,17 +17,17 @@ namespace resx2html
 
         static void ShowSplash()
         {
-            Console.WriteLine("###########################################################################");
-            Console.WriteLine("#              WELCOME TO RESX2HTML (.NET RESOURCE CONVERTER)             #");
-            Console.WriteLine("#           This console program will convert resx file to HTML.          #");
-            Console.WriteLine("#                                                                         #");
-            Console.WriteLine("#          (C) 2005 - 2013 EasyCoding Team. All rights reserved.          #");
-            Console.WriteLine("#             Original author: V1TSK (vitaly@easycoding.org).             #");
-            Console.WriteLine("#                                                                         #");
-            Console.WriteLine("#       Official site: http://www.easycoding.org/projects/resx2html       #");
-            Console.WriteLine("#                       Part of SRC Repair project.                       #");
-            Console.WriteLine("###########################################################################");
-            Console.WriteLine();
+            try
+            {
+                using (Stream Strm = Assembly.GetExecutingAssembly().GetManifestResourceStream("resx2html.Resources.WelcomeMsg.txt"))
+                {
+                    using (StreamReader Reader = new StreamReader(Strm))
+                    {
+                        Console.WriteLine(Reader.ReadToEnd());
+                    }
+                }
+            }
+            catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
         }
 
         static void DoConversion(string Source, string Dest)
