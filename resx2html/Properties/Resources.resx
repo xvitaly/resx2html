@@ -120,6 +120,9 @@
   <data name="AppName" xml:space="preserve">
     <value>Non-interactive .NET resource converter</value>
   </data>
+  <data name="ExcptMsg" xml:space="preserve">
+    <value>Exception caught: {0}.</value>
+  </data>
   <data name="HTMLFooter" xml:space="preserve">
     <value>&lt;/table&gt;&lt;/div&gt;&lt;div align=\"right\"&gt;(c) EasyCoding Team&lt;/div&gt;&lt;/body&gt;</value>
   </data>

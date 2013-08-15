@@ -57,7 +57,7 @@ namespace resx2html
                             Console.WriteLine(" Done.\n\nGoodbye.");
                         }
                     }
-                    catch (Exception Ex) { Console.WriteLine(String.Format("Exception caught: {0}.", Ex.Message)); }
+                    catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
                 }
             }
             else

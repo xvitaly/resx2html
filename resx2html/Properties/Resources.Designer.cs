@@ -70,6 +70,15 @@ namespace resx2html.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exception caught: {0}..
+        /// </summary>
+        internal static string ExcptMsg {
+            get {
+                return ResourceManager.GetString("ExcptMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;/table&gt;&lt;/div&gt;&lt;div align=\&quot;right\&quot;&gt;(c) EasyCoding Team&lt;/div&gt;&lt;/body&gt;.
         /// </summary>
         internal static string HTMLFooter {
