@@ -79,6 +79,7 @@ namespace resx2html
                 }
             }
             else { Console.WriteLine(Properties.Resources.WlxMsg); }
+
             #if DEBUG
             Console.ReadKey();
             #endif
