@@ -1,4 +1,17 @@
-﻿using System;
+﻿/*
+ * RESX2HTML - non-interactive .NET resource converter.
+ * This product is a part of SRC Repair project.
+ * 
+ * Copyright 2011 EasyCoding Team (ECTeam).
+ * Copyright 2005 - 2013 EasyCoding Team.
+ * 
+ * License: GPL v3 (see COPYING file).
+ * 
+ * Official EasyCoding Team's blog: http://www.easycoding.org/
+ * RESX2HTML's official site: http://www.easycoding.org/projects/resx2html
+ *
+*/
+using System;
 using System.Linq;
 using System.Text;
 using System.IO;
