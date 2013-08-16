@@ -92,6 +92,24 @@ namespace resx2html.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to resx2html.Resources.HTMLTemplate.txt.
+        /// </summary>
+        internal static string TemplateHTMLFile {
+            get {
+                return ResourceManager.GetString("TemplateHTMLFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to resx2html.Resources.WelcomeMsg.txt.
+        /// </summary>
+        internal static string WelcomeFileName {
+            get {
+                return ResourceManager.GetString("WelcomeFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ###########################################################################
         ///#              WELCOME TO RESX2HTML (.NET RESOURCE CONVERTER)             #
         ///#           This console program will convert resx file to HTML.          #

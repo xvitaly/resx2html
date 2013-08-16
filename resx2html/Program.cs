@@ -78,7 +78,7 @@ namespace resx2html
         {
             ConfigureConsole(Properties.Resources.AppName, ConsoleColor.Green);
 
-            try { ShowSplash("resx2html.Resources.WelcomeMsg.txt"); } catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
+            try { ShowSplash(Properties.Resources.WelcomeFileName); } catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
 
             if (Args.Count() > 1)
             {
@@ -86,8 +86,7 @@ namespace resx2html
                 {
                     Console.WriteLine(String.Format("Source file: {0}\nDestination file: {1}\n", Args[0], Args[1]));
                     Console.Write("Starting conversion...");
-                    try { PrepareConversion(Args[0], Args[1], "resx2html.Resources.HTMLTemplate.txt"); }
-                    catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
+                    try { PrepareConversion(Args[0], Args[1], Properties.Resources.TemplateHTMLFile); } catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
                     Console.WriteLine(" Done.\n\nGoodbye.");
                 }
             }
