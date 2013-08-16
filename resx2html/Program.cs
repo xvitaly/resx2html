@@ -30,13 +30,21 @@ namespace resx2html
             catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
         }
 
-        static void DoConversion(string Source, string Dest)
+        static void PrepareConversion(string Source, string Dest)
+        {
+            string Header = Properties.Resources.HTMLHeader;
+            string Body = Properties.Resources.HTMLRow;
+            string Footer = Properties.Resources.HTMLFooter;
+            DoConversion(Source, Dest, Header, Body, Footer);
+        }
+
+        static void DoConversion(string Source, string Dest, string Header, string RowTemplate, string Footer)
         {
             try
             {
                 using (StreamWriter CFile = new StreamWriter(Dest, false, Encoding.UTF8))
                 {
-                    CFile.WriteLine(Properties.Resources.HTMLHeader);
+                    CFile.WriteLine(Header);
                     XmlDocument XMLD = new XmlDocument();
                     using (FileStream XMLFS = new FileStream(Source, FileMode.Open, FileAccess.Read))
                     {
@@ -49,14 +57,14 @@ namespace resx2html
                                 XmlElement ElID = (XmlElement)XMLD.GetElementsByTagName("data")[i];
                                 if (String.IsNullOrWhiteSpace(ElID.GetAttribute("type")))
                                 {
-                                    CFile.WriteLine(String.Format(Properties.Resources.HTMLRow, ElID.GetAttribute("name"), ElID.GetElementsByTagName("value")[0].InnerText));
+                                    CFile.WriteLine(String.Format(RowTemplate, ElID.GetAttribute("name"), ElID.GetElementsByTagName("value")[0].InnerText));
                                 }
                             }
                             catch (Exception Ex) { CFile.WriteLine(String.Format(Properties.Resources.HTMLCommFormat, Ex.Message)); }
                         }
                         XMLFS.Close();
                     }
-                    CFile.WriteLine(Properties.Resources.HTMLFooter);
+                    CFile.WriteLine(Footer);
                     CFile.Close();
                 }
             }
@@ -74,7 +82,7 @@ namespace resx2html
                 {
                     Console.WriteLine(String.Format("Source file: {0}\nDestination file: {1}\n", Args[0], Args[1]));
                     Console.Write("Starting conversion...");
-                    DoConversion(Args[0], Args[1]);
+                    PrepareConversion(Args[0], Args[1]);
                     Console.WriteLine(" Done.\n\nGoodbye.");
                 }
             }
