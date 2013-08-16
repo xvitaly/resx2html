@@ -69,7 +69,7 @@ namespace resx2html
                     }
                     XMLFS.Close();
                 }
-                CFile.WriteLine(Footer);
+                CFile.WriteLine("\n{0}", Footer);
                 CFile.Close();
             }
         }
@@ -79,7 +79,7 @@ namespace resx2html
             string Result;
             switch (Id)
             {
-                case "1": Result = "";
+                case "1": Result = Properties.Resources.TemplateGWikiFile;
                     break;
                 case "2": Result = "";
                     break;

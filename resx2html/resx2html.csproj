@@ -89,6 +89,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\WelcomeMsg.txt" />
     <EmbeddedResource Include="Resources\HTMLTemplate.txt" />
+    <EmbeddedResource Include="Resources\GWikiTemplate.txt" />
     <Content Include="resx2html.ico" />
   </ItemGroup>
   <ItemGroup>

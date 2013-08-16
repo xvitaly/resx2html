@@ -124,8 +124,14 @@
     <value>Exception caught: {0}.</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="GWikiTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GWikiTemplate.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
   <data name="HTMLTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HTMLTemplate.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="TemplateGWikiFile" xml:space="preserve">
+    <value>resx2html.Resources.GWikiTemplate.txt</value>
   </data>
   <data name="TemplateHTMLFile" xml:space="preserve">
     <value>resx2html.Resources.HTMLTemplate.txt</value>
