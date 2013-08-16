@@ -27,11 +27,11 @@ namespace resx2html
             }
         }
 
-        static void PrepareConversion(string Source, string Dest)
+        static void PrepareConversion(string Source, string Dest, string TemplateName)
         {
             List<String> Template = new List<string>();
 
-            using (Stream Strm = Assembly.GetExecutingAssembly().GetManifestResourceStream("resx2html.Resources.HTMLTemplate.txt"))
+            using (Stream Strm = Assembly.GetExecutingAssembly().GetManifestResourceStream(TemplateName))
             {
                 using (StreamReader Reader = new StreamReader(Strm))
                 {
@@ -86,7 +86,8 @@ namespace resx2html
                 {
                     Console.WriteLine(String.Format("Source file: {0}\nDestination file: {1}\n", Args[0], Args[1]));
                     Console.Write("Starting conversion...");
-                    try { PrepareConversion(Args[0], Args[1]); } catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
+                    try { PrepareConversion(Args[0], Args[1], "resx2html.Resources.HTMLTemplate.txt"); }
+                    catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
                     Console.WriteLine(" Done.\n\nGoodbye.");
                 }
             }
