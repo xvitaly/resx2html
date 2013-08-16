@@ -73,6 +73,21 @@ namespace resx2html
                 CFile.Close();
             }
         }
+
+        static string GetTemplateNameById(string Id)
+        {
+            string Result;
+            switch (Id)
+            {
+                case "1": Result = "";
+                    break;
+                case "2": Result = "";
+                    break;
+                default: Result = Properties.Resources.TemplateHTMLFile;
+                    break;
+            }
+            return Result;
+        }
         
         static void Main(string[] Args)
         {
@@ -86,7 +101,11 @@ namespace resx2html
                 {
                     Console.WriteLine(String.Format("Source file: {0}\nDestination file: {1}\n", Args[0], Args[1]));
                     Console.Write("Starting conversion...");
-                    try { PrepareConversion(Args[0], Args[1], Properties.Resources.TemplateHTMLFile); } catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
+                    try
+                    {
+                        string TemplateFile = (Args.Count() > 2) ? GetTemplateNameById(Args[2]) : Properties.Resources.TemplateHTMLFile;
+                        PrepareConversion(Args[0], Args[1], TemplateFile);
+                    } catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
                     Console.WriteLine(" Done.\n\nGoodbye.");
                 }
             }
