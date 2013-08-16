@@ -35,10 +35,11 @@ namespace resx2html
             string Header = Properties.Resources.HTMLHeader;
             string Body = Properties.Resources.HTMLRow;
             string Footer = Properties.Resources.HTMLFooter;
-            DoConversion(Source, Dest, Header, Body, Footer);
+            string Commentary = Properties.Resources.HTMLCommFormat;
+            DoConversion(Source, Dest, Header, Body, Footer, Commentary);
         }
 
-        static void DoConversion(string Source, string Dest, string Header, string RowTemplate, string Footer)
+        static void DoConversion(string Source, string Dest, string Header, string RowTemplate, string Footer, string Commentary)
         {
             try
             {
@@ -60,7 +61,7 @@ namespace resx2html
                                     CFile.WriteLine(String.Format(RowTemplate, ElID.GetAttribute("name"), ElID.GetElementsByTagName("value")[0].InnerText));
                                 }
                             }
-                            catch (Exception Ex) { CFile.WriteLine(String.Format(Properties.Resources.HTMLCommFormat, Ex.Message)); }
+                            catch (Exception Ex) { CFile.WriteLine(String.Format(Commentary, Ex.Message)); }
                         }
                         XMLFS.Close();
                     }
