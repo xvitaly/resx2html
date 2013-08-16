@@ -16,9 +16,9 @@ namespace resx2html
             Console.ForegroundColor = Color;
         }
 
-        static void ShowSplash()
+        static void ShowSplash(string FileName)
         {
-            using (Stream Strm = Assembly.GetExecutingAssembly().GetManifestResourceStream("resx2html.Resources.WelcomeMsg.txt"))
+            using (Stream Strm = Assembly.GetExecutingAssembly().GetManifestResourceStream(FileName))
             {
                 using (StreamReader Reader = new StreamReader(Strm))
                 {
@@ -78,7 +78,7 @@ namespace resx2html
         {
             ConfigureConsole(Properties.Resources.AppName, ConsoleColor.Green);
 
-            try { ShowSplash(); } catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
+            try { ShowSplash("resx2html.Resources.WelcomeMsg.txt"); } catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
 
             if (Args.Count() > 1)
             {
