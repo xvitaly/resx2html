@@ -70,6 +70,15 @@ namespace resx2html.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0}Done.{1}{2}Goodbye..
+        /// </summary>
+        internal static string EndFlMsg {
+            get {
+                return ResourceManager.GetString("EndFlMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exception caught: {0}..
         /// </summary>
         internal static string ExcptMsg {
@@ -127,6 +136,15 @@ namespace resx2html.Properties {
         internal static string MediaWikiTemplate {
             get {
                 return ResourceManager.GetString("MediaWikiTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Starting conversion....
+        /// </summary>
+        internal static string StartFlMsg {
+            get {
+                return ResourceManager.GetString("StartFlMsg", resourceCulture);
             }
         }
         
@@ -196,6 +214,15 @@ namespace resx2html.Properties {
         internal static string WlxMsg {
             get {
                 return ResourceManager.GetString("WlxMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source file: {0}.{1}Destination file: {2}.{3}.
+        /// </summary>
+        internal static string WrkFlMsg {
+            get {
+                return ResourceManager.GetString("WrkFlMsg", resourceCulture);
             }
         }
     }

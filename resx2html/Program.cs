@@ -74,7 +74,7 @@ namespace resx2html
                     }
                     XMLFS.Close();
                 }
-                CFile.WriteLine("\n{0}", Footer);
+                CFile.WriteLine("{0}{1}", System.Environment.NewLine, Footer);
                 CFile.Close();
             }
         }
@@ -106,14 +106,14 @@ namespace resx2html
             {
                 if (File.Exists(Args[0]))
                 {
-                    Console.WriteLine(String.Format("Source file: {0}\nDestination file: {1}\n", Args[0], Args[1]));
-                    Console.Write("Starting conversion...");
+                    Console.WriteLine(String.Format(Properties.Resources.WrkFlMsg, Args[0], System.Environment.NewLine, Args[1], System.Environment.NewLine));
+                    Console.Write(Properties.Resources.StartFlMsg);
                     try
                     {
                         string TemplateFile = (Args.Count() > 2) ? GetTemplateNameById(Args[2]) : Properties.Resources.TemplateHTMLFile;
                         PrepareConversion(Args[0], Args[1], TemplateFile);
                     } catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
-                    Console.WriteLine(" Done.\n\nGoodbye.");
+                    Console.WriteLine(Properties.Resources.EndFlMsg, " ", System.Environment.NewLine, System.Environment.NewLine);
                 }
             }
             else { Console.WriteLine(Properties.Resources.WlxMsg); }

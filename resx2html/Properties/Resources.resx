@@ -120,6 +120,9 @@
   <data name="AppName" xml:space="preserve">
     <value>Non-interactive .NET resource converter</value>
   </data>
+  <data name="EndFlMsg" xml:space="preserve">
+    <value>{0}Done.{1}{2}Goodbye.</value>
+  </data>
   <data name="ExcptMsg" xml:space="preserve">
     <value>Exception caught: {0}.</value>
   </data>
@@ -135,6 +138,9 @@
   </data>
   <data name="MediaWikiTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MediaWikiTemplate.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="StartFlMsg" xml:space="preserve">
+    <value>Starting conversion...</value>
   </data>
   <data name="TemplateGWikiFile" xml:space="preserve">
     <value>resx2html.Resources.GWikiTemplate.txt</value>
@@ -156,5 +162,8 @@
   </data>
   <data name="WlxMsg" xml:space="preserve">
     <value>Syntax: resx2html &lt;RESX-file&gt; &lt;result.html&gt; &lt;output format&gt;</value>
+  </data>
+  <data name="WrkFlMsg" xml:space="preserve">
+    <value>Source file: {0}.{1}Destination file: {2}.{3}</value>
   </data>
 </root>
