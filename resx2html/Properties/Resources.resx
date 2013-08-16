@@ -133,6 +133,9 @@
   <data name="MarkdownTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MarkdownTemplate.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="MediaWikiTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MediaWikiTemplate.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="TemplateGWikiFile" xml:space="preserve">
     <value>resx2html.Resources.GWikiTemplate.txt</value>
   </data>
@@ -141,6 +144,9 @@
   </data>
   <data name="TemplateMarkdownFile" xml:space="preserve">
     <value>resx2html.Resources.MarkdownTemplate.txt</value>
+  </data>
+  <data name="TemplateMediaWikiFile" xml:space="preserve">
+    <value>resx2html.Resources.MediaWikiTemplate.txt</value>
   </data>
   <data name="WelcomeFileName" xml:space="preserve">
     <value>resx2html.Resources.WelcomeMsg.txt</value>

@@ -88,6 +88,8 @@ namespace resx2html
                     break;
                 case "2": Result = Properties.Resources.TemplateMarkdownFile;
                     break;
+                case "3": Result = Properties.Resources.TemplateMediaWikiFile;
+                    break;
                 default: Result = Properties.Resources.TemplateHTMLFile;
                     break;
             }
