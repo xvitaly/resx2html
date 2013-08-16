@@ -4,6 +4,7 @@ using System.Text;
 using System.IO;
 using System.Xml;
 using System.Reflection;
+using System.Collections.Generic;
 
 namespace resx2html
 {
@@ -17,65 +18,67 @@ namespace resx2html
 
         static void ShowSplash()
         {
-            try
+            using (Stream Strm = Assembly.GetExecutingAssembly().GetManifestResourceStream("resx2html.Resources.WelcomeMsg.txt"))
             {
-                using (Stream Strm = Assembly.GetExecutingAssembly().GetManifestResourceStream("resx2html.Resources.WelcomeMsg.txt"))
+                using (StreamReader Reader = new StreamReader(Strm))
                 {
-                    using (StreamReader Reader = new StreamReader(Strm))
-                    {
-                        Console.WriteLine(Reader.ReadToEnd());
-                    }
+                    Console.WriteLine(Reader.ReadToEnd());
                 }
             }
-            catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
         }
 
         static void PrepareConversion(string Source, string Dest)
         {
-            string Header = Properties.Resources.HTMLHeader;
-            string Body = Properties.Resources.HTMLRow;
-            string Footer = Properties.Resources.HTMLFooter;
-            string Commentary = Properties.Resources.HTMLCommFormat;
-            DoConversion(Source, Dest, Header, Body, Footer, Commentary);
+            List<String> Template = new List<string>();
+
+            using (Stream Strm = Assembly.GetExecutingAssembly().GetManifestResourceStream("resx2html.Resources.HTMLTemplate.txt"))
+            {
+                using (StreamReader Reader = new StreamReader(Strm))
+                {
+                    while (Reader.Peek() >= 0)
+                    {
+                        Template.Add(Reader.ReadLine());
+                    }
+                }
+            }
+
+            if (Template.Count >= 4) { DoConversion(Source, Dest, Template[0], Template[1], Template[3], Template[2]); } else { throw new ArgumentNullException(); }
         }
 
         static void DoConversion(string Source, string Dest, string Header, string RowTemplate, string Footer, string Commentary)
         {
-            try
+            using (StreamWriter CFile = new StreamWriter(Dest, false, Encoding.UTF8))
             {
-                using (StreamWriter CFile = new StreamWriter(Dest, false, Encoding.UTF8))
+                CFile.WriteLine(Header);
+                XmlDocument XMLD = new XmlDocument();
+                using (FileStream XMLFS = new FileStream(Source, FileMode.Open, FileAccess.Read))
                 {
-                    CFile.WriteLine(Header);
-                    XmlDocument XMLD = new XmlDocument();
-                    using (FileStream XMLFS = new FileStream(Source, FileMode.Open, FileAccess.Read))
+                    XMLD.Load(XMLFS);
+                    XmlNodeList XMLNList = XMLD.GetElementsByTagName("data");
+                    for (int i = 0; i < XMLNList.Count; i++)
                     {
-                        XMLD.Load(XMLFS);
-                        XmlNodeList XMLNList = XMLD.GetElementsByTagName("data");
-                        for (int i = 0; i < XMLNList.Count; i++)
+                        try
                         {
-                            try
+                            XmlElement ElID = (XmlElement)XMLD.GetElementsByTagName("data")[i];
+                            if (String.IsNullOrWhiteSpace(ElID.GetAttribute("type")))
                             {
-                                XmlElement ElID = (XmlElement)XMLD.GetElementsByTagName("data")[i];
-                                if (String.IsNullOrWhiteSpace(ElID.GetAttribute("type")))
-                                {
-                                    CFile.WriteLine(String.Format(RowTemplate, ElID.GetAttribute("name"), ElID.GetElementsByTagName("value")[0].InnerText));
-                                }
+                                CFile.WriteLine(String.Format(RowTemplate, ElID.GetAttribute("name"), ElID.GetElementsByTagName("value")[0].InnerText));
                             }
-                            catch (Exception Ex) { CFile.WriteLine(String.Format(Commentary, Ex.Message)); }
                         }
-                        XMLFS.Close();
+                        catch (Exception Ex) { CFile.WriteLine(String.Format(Commentary, Ex.Message)); }
                     }
-                    CFile.WriteLine(Footer);
-                    CFile.Close();
+                    XMLFS.Close();
                 }
+                CFile.WriteLine(Footer);
+                CFile.Close();
             }
-            catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
         }
         
         static void Main(string[] Args)
         {
             ConfigureConsole(Properties.Resources.AppName, ConsoleColor.Green);
-            ShowSplash();
+
+            try { ShowSplash(); } catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
 
             if (Args.Count() > 1)
             {
@@ -83,7 +86,7 @@ namespace resx2html
                 {
                     Console.WriteLine(String.Format("Source file: {0}\nDestination file: {1}\n", Args[0], Args[1]));
                     Console.Write("Starting conversion...");
-                    PrepareConversion(Args[0], Args[1]);
+                    try { PrepareConversion(Args[0], Args[1]); } catch (Exception Ex) { Console.WriteLine(String.Format(Properties.Resources.ExcptMsg, Ex.Message)); }
                     Console.WriteLine(" Done.\n\nGoodbye.");
                 }
             }
