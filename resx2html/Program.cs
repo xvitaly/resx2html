@@ -27,6 +27,11 @@ namespace resx2html
             }
         }
 
+        static string FormatLine(string Line)
+        {
+            return Line.Replace("{LBR}", System.Environment.NewLine);
+        }
+
         static void PrepareConversion(string Source, string Dest, string TemplateName)
         {
             List<String> Template = new List<string>();
@@ -37,7 +42,7 @@ namespace resx2html
                 {
                     while (Reader.Peek() >= 0)
                     {
-                        Template.Add(Reader.ReadLine());
+                        Template.Add(FormatLine(Reader.ReadLine()));
                     }
                 }
             }
@@ -81,7 +86,7 @@ namespace resx2html
             {
                 case "1": Result = Properties.Resources.TemplateGWikiFile;
                     break;
-                case "2": Result = "";
+                case "2": Result = Properties.Resources.TemplateMarkdownFile;
                     break;
                 default: Result = Properties.Resources.TemplateHTMLFile;
                     break;

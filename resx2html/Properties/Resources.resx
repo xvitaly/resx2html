@@ -125,16 +125,22 @@
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="GWikiTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GWikiTemplate.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>..\Resources\GWikiTemplate.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="HTMLTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HTMLTemplate.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+    <value>..\Resources\HTMLTemplate.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MarkdownTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MarkdownTemplate.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="TemplateGWikiFile" xml:space="preserve">
     <value>resx2html.Resources.GWikiTemplate.txt</value>
   </data>
   <data name="TemplateHTMLFile" xml:space="preserve">
     <value>resx2html.Resources.HTMLTemplate.txt</value>
+  </data>
+  <data name="TemplateMarkdownFile" xml:space="preserve">
+    <value>resx2html.Resources.MarkdownTemplate.txt</value>
   </data>
   <data name="WelcomeFileName" xml:space="preserve">
     <value>resx2html.Resources.WelcomeMsg.txt</value>

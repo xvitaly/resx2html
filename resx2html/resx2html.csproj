@@ -90,6 +90,7 @@
     <EmbeddedResource Include="Resources\WelcomeMsg.txt" />
     <EmbeddedResource Include="Resources\HTMLTemplate.txt" />
     <EmbeddedResource Include="Resources\GWikiTemplate.txt" />
+    <EmbeddedResource Include="Resources\MarkdownTemplate.txt" />
     <Content Include="resx2html.ico" />
   </ItemGroup>
   <ItemGroup>
